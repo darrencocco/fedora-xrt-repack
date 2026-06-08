@@ -1,0 +1,1 @@
+KERNEL=="accel*",DRIVERS=="amdxdna",MODE="0666"
