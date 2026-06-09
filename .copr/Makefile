@@ -14,7 +14,7 @@ ARCHIVE := $(GIT_DIR).tar.gz
 GIT_COMMIT := $(lastword $(shell grep "%global gitcommit" $(spec)))
 
 srpm: prepare-srpm
-	rpmbuild --undefine dist -bs rpmbuild/SPECS/$(SPEC_FILENAME)
+	rpmbuild --define "_topdir `pwd`/rpmbuild" --undefine dist -bs rpmbuild/SPECS/$(SPEC_FILENAME)
 	cp rpmbuild/SRPMS/* $(outdir)
 
 prepare-srpm: compress-source
