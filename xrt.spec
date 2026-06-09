@@ -5,7 +5,7 @@
 
 Name: xrt-base
 Version: 2.25.13^%{gitsnapinfo}
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: AMD Flexible Runtime base
 Group: System Environment/Libraries
 License: Apache-2.0
@@ -152,7 +152,7 @@ mv %{buildroot}/usr/share/completions/xbutil-bash-completion %{buildroot}%{bash_
 /usr/lib64/libxrt_hip.so.2
 /usr/lib64/libxrt_hip.so.2.25.0
 # Need to work out how to dynamically place these because python version might change
-%{python3_sitearch}/pyxrt.cpython-314-x86_64-linux-gnu.so
+%{python3_sitearch}/pyxrt.cpython-%{python3_version_nodots}-x86_64-linux-gnu.so
 %{python3_sitearch}/pyxrt.pyi
 
 /etc/profile.d/xbutil.csh
