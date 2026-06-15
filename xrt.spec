@@ -1,11 +1,11 @@
-%global gitcommit c63dac03a1dd0d4782befd127f65362ea12478c4
+%global gitcommit 943586a79b5a714463cb13d3ba7e178b8532c817
 %global gitshortcommit %(c=%{gitcommit}; echo ${c:0:7})
-%global gitsnapinfo git20260602.%{gitshortcommit}
+%global gitsnapinfo git20260615.%{gitshortcommit}
 %global debug_package %{nil}
 
 Name: xrt-base
-Version: 2.25.13^%{gitsnapinfo}
-Release: 2%{?dist}
+Version: 2.25.23^%{gitsnapinfo}
+Release: 1%{?dist}
 Summary: AMD Flexible Runtime base
 Group: System Environment/Libraries
 License: Apache-2.0
@@ -140,6 +140,8 @@ mv %{buildroot}/usr/share/completions/xbutil-bash-completion %{buildroot}%{bash_
 /usr/bin/xclbinutil
 /usr/bin/xrt-runner
 /usr/bin/xrt-smi
+/usr/bin/xrt-capture
+/usr/bin/xrt-replay
 
 /usr/lib64/libxilinxopencl.so.2
 /usr/lib64/libxilinxopencl.so.2.25.0
@@ -270,5 +272,7 @@ mv %{buildroot}/usr/share/completions/xbutil-bash-completion %{buildroot}%{bash_
 
 
 %changelog
+* Mon Jun 15 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.25.23^git20260615.943586a
+- Upgraded to 2.26.23
 * Thu Jun 04 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.25.13^git20260602.c63dac0
 - Initial release

@@ -23,11 +23,14 @@ srpm-amdxdna-kmod:
 build-xrt:
 	dnf builddep -y xrt-base*.src.rpm
 	rpmbuild -rb xrt-base*.src.rpm
+	cp ~/rpmbuild/RPMS/*/* ./
 
 build-xrt-plugin-amdxdna:
 	dnf builddep -y xrt-plugin-amdxdna*.src.rpm xrt-base*.src.rpm
 	rpmbuild -rb xrt-plugin-amdxdna*.src.rpm
+	cp ~/rpmbuild/RPMS/*/* ./
 
 build-amdxdna-kmod:
 	dnf builddep -y amdxdna-kmod*.src.rpm
 	rpmbuild -rb amdxdna-kmod*.src.rpm
+	cp ~/rpmbuild/RPMS/*/* ./
