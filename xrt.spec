@@ -1,10 +1,10 @@
-%global gitcommit 943586a79b5a714463cb13d3ba7e178b8532c817
+%global gitcommit 5e16db0493278b4d778ac3e7c1c5c8a0fe018bf3
 %global gitshortcommit %(c=%{gitcommit}; echo ${c:0:7})
-%global gitsnapinfo git20260615.%{gitshortcommit}
+%global gitsnapinfo git20260708.%{gitshortcommit}
 %global debug_package %{nil}
 
 Name: xrt-base
-Version: 2.25.23^%{gitsnapinfo}
+Version: 2.26.0^%{gitsnapinfo}
 Release: 1%{?dist}
 Summary: AMD Flexible Runtime base
 Group: System Environment/Libraries
@@ -144,15 +144,15 @@ mv %{buildroot}/usr/share/completions/xbutil-bash-completion %{buildroot}%{bash_
 /usr/bin/xrt-replay
 
 /usr/lib64/libxilinxopencl.so.2
-/usr/lib64/libxilinxopencl.so.2.25.0
+/usr/lib64/libxilinxopencl.so.2.26.0
 /usr/lib64/libxrt++.so.2
-/usr/lib64/libxrt++.so.2.25.0
+/usr/lib64/libxrt++.so.2.26.0
 /usr/lib64/libxrt_core.so.2
-/usr/lib64/libxrt_core.so.2.25.0
+/usr/lib64/libxrt_core.so.2.26.0
 /usr/lib64/libxrt_coreutil.so.2
-/usr/lib64/libxrt_coreutil.so.2.25.0
+/usr/lib64/libxrt_coreutil.so.2.26.0
 /usr/lib64/libxrt_hip.so.2
-/usr/lib64/libxrt_hip.so.2.25.0
+/usr/lib64/libxrt_hip.so.2.26.0
 # Need to work out how to dynamically place these because python version might change
 %{python3_sitearch}/pyxrt.cpython-%{python3_version_nodots}-x86_64-linux-gnu.so
 %{python3_sitearch}/pyxrt.pyi
@@ -257,22 +257,26 @@ mv %{buildroot}/usr/share/completions/xbutil-bash-completion %{buildroot}%{bash_
 
 %files -n xrt-npu
 /usr/lib64/libxdp_core.so.2
-/usr/lib64/libxdp_core.so.2.25.0
+/usr/lib64/libxdp_core.so.2.26.0
 /usr/lib64/xrt/module/libxdp_aie_profile_plugin.so.2
-/usr/lib64/xrt/module/libxdp_aie_profile_plugin.so.2.25.0
+/usr/lib64/xrt/module/libxdp_aie_profile_plugin.so.2.26.0
 /usr/lib64/xrt/module/libxdp_aie_trace_plugin.so.2
-/usr/lib64/xrt/module/libxdp_aie_trace_plugin.so.2.25.0
+/usr/lib64/xrt/module/libxdp_aie_trace_plugin.so.2.26.0
 /usr/lib64/xrt/module/libxdp_ml_timeline_plugin.so.2
-/usr/lib64/xrt/module/libxdp_ml_timeline_plugin.so.2.25.0
+/usr/lib64/xrt/module/libxdp_ml_timeline_plugin.so.2.26.0
 /usr/lib64/xrt/module/libxdp_native_plugin.so.2
-/usr/lib64/xrt/module/libxdp_native_plugin.so.2.25.0
+/usr/lib64/xrt/module/libxdp_native_plugin.so.2.26.0
 /usr/lib64/xrt/module/libxdp_user_plugin.so.2
-/usr/lib64/xrt/module/libxdp_user_plugin.so.2.25.0
+/usr/lib64/xrt/module/libxdp_user_plugin.so.2.26.0
 
 
 
 %changelog
-* Mon Jun 15 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.25.23^git20260615.943586a
+* Wed Jul 08 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.26.0^git20260708.4d57b3d-1
+- Updated to 2.26.0
+
+* Mon Jun 15 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.25.23^git20260615.943586a-1
 - Upgraded to 2.26.23
-* Thu Jun 04 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.25.13^git20260602.c63dac0
+
+* Thu Jun 04 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.25.13^git20260602.c63dac0-1
 - Initial release

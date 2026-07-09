@@ -2,6 +2,8 @@ MAKEFILE_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 all: xrt xrt-plugin-amdxdna amdxdna-kmod
 
+all-srpm: srpm-xrt srpm-xrt-plugin-amdxdna srpm-amdxdna-kmod
+
 xrt: srpm-xrt build-xrt
 
 xrt-plugin-amdxdna: srpm-xrt-plugin-amdxdna build-xrt-plugin-amdxdna
@@ -34,3 +36,9 @@ build-amdxdna-kmod:
 	dnf builddep -y amdxdna-kmod*.src.rpm
 	rpmbuild -rb amdxdna-kmod*.src.rpm
 	cp ~/rpmbuild/RPMS/*/* ./
+
+clean:
+	$(MAKE) -f $(MAKEFILE_DIR)/.copr/Makefile clean spec=$(MAKEFILE_DIR)/amdxdna-kmod.spec
+	$(MAKE) -f $(MAKEFILE_DIR)/.copr/Makefile clean spec=$(MAKEFILE_DIR)/xrt-plugin-amdxdna.spec
+	$(MAKE) -f $(MAKEFILE_DIR)/.copr/Makefile clean spec=$(MAKEFILE_DIR)/xrt.spec
+	rm -f *.rpm

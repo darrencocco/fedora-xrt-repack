@@ -1,10 +1,10 @@
-%global gitcommit 928ce6f6dcb20f5c6ed739ed9ccd129c18effd39
+%global gitcommit 4d57b3dd4e9841abbc90def2abe62dca2caa832f
 %global gitshortcommit %(c=%{gitcommit}; echo ${c:0:7})
-%global gitsnapinfo git20260615.%{gitshortcommit}
+%global gitsnapinfo git20260708.%{gitshortcommit}
 %global debug_package %{nil}
 
 Name: xrt-plugin-amdxdna
-Version: 2.25.23^%{gitsnapinfo}
+Version: 2.26.0^%{gitsnapinfo}
 Release: 1%{?dist}
 Summary: AMD Flexible Runtime XDNA2 shim
 Group: System Environment/Libraries
@@ -107,7 +107,7 @@ install -D -m 0644 additional_config/90-amdxdna-memlock.conf %{buildroot}/etc/se
 /usr/lib64/libvxdna.so.1
 /usr/lib64/libvxdna.so.1.0.0
 /usr/lib64/libxrt_driver_xdna.so.2
-/usr/lib64/libxrt_driver_xdna.so.2.25.0
+/usr/lib64/libxrt_driver_xdna.so.2.26.0
 /usr/lib64/pkgconfig/vxdna.pc
 /usr/share/amdxdna/bins/xrt_smi_npu3.a
 /usr/share/amdxdna/bins/xrt_smi_phx.a
@@ -116,8 +116,11 @@ install -D -m 0644 additional_config/90-amdxdna-memlock.conf %{buildroot}/etc/se
 
 
 %changelog
-* Mon Jun 15 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.25.23^git20260615.928ce6f
+* Wed Jul 08 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.26.0^git20260708.4d57b3d-1
+- Updated upstream to 2.26.0
+
+* Mon Jun 15 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.25.23^git20260615.928ce6f-1
 - Upgraded to commit 928ce6f6dcb20f5c6ed739ed9ccd129c18effd39
 
-* Sun Jun 07 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.25.13^git20260607.cd2494b
+* Sun Jun 07 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.25.13^git20260607.cd2494b-1
 - Initial release
