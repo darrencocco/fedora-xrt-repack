@@ -1,6 +1,6 @@
-%global gitcommit 4d57b3dd4e9841abbc90def2abe62dca2caa832f
+%global gitcommit eae6a0f610fe70bc1df23ef0977c1689b87656e4
 %global gitshortcommit %(c=%{gitcommit}; echo ${c:0:7})
-%global gitsnapinfo git20260708.%{gitshortcommit}
+%global gitsnapinfo git20260901.%{gitshortcommit}
 %global debug_package %{nil}
 
 Name: xrt-plugin-amdxdna
@@ -116,8 +116,8 @@ install -D -m 0644 additional_config/90-amdxdna-memlock.conf %{buildroot}/etc/se
 
 
 %changelog
-* Wed Jul 08 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.26.0^git20260708.4d57b3d-1
-- Updated upstream to 2.26.0
+* Tue Sep 1 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.26.0^git20260901.eae6a0f-1
+- Upgraded to commit eae6a0f610fe70bc1df23ef0977c1689b87656e4
 
 * Mon Jun 15 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.25.23^git20260615.928ce6f-1
 - Upgraded to commit 928ce6f6dcb20f5c6ed739ed9ccd129c18effd39

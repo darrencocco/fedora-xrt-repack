@@ -23,7 +23,7 @@ prepare-srpm: compress-source
 	cp $(spec) rpmbuild/SPECS/
 
 download:
-	dnf install -y git jq wget
+	dnf install -y git python3
 	git clone --recursive --revision $(GIT_COMMIT) $(GIT_REPO) $(GIT_DIR)
 
 compress-source: download prepare-kmod-archive prepare-xrt-plugin-archive
@@ -37,6 +37,7 @@ endif
 
 prepare-kmod-archive: download-npu-firmware
 ifeq ($(SPEC_FILENAME),amdxdna-kmod.spec)
+	rm -rf $(GIT_DIR).old
 	mv $(GIT_DIR) $(GIT_DIR).old
 
 	mkdir -p $(GIT_DIR)/{legacy,upstream,firmware,config}
@@ -71,4 +72,5 @@ endif
 clean :
 	rm -f $(ARCHIVE)
 	rm -rf $(GIT_DIR)
+	rm -rf $(GIT_DIR).old
 	rm -rf rpmbuild/

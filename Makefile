@@ -4,22 +4,30 @@ all: xrt xrt-plugin-amdxdna amdxdna-kmod
 
 all-srpm: srpm-xrt srpm-xrt-plugin-amdxdna srpm-amdxdna-kmod
 
+clean: clean-xrt clean-xrt-plugin-amdxdna clean-amdxdna-kmod
+
 xrt: srpm-xrt build-xrt
 
 xrt-plugin-amdxdna: srpm-xrt-plugin-amdxdna build-xrt-plugin-amdxdna
 
 amdxdna-kmod: srpm-amdxdna-kmod build-amdxdna-kmod
 
-srpm-xrt:
+clean-xrt:
 	$(MAKE) -f $(MAKEFILE_DIR)/.copr/Makefile clean spec=$(MAKEFILE_DIR)/xrt.spec
+
+clean-xrt-plugin-amdxdna:
+	$(MAKE) -f $(MAKEFILE_DIR)/.copr/Makefile clean spec=$(MAKEFILE_DIR)/xrt-plugin-amdxdna.spec
+
+clean-amdxdna-kmod:
+	$(MAKE) -f $(MAKEFILE_DIR)/.copr/Makefile clean spec=$(MAKEFILE_DIR)/amdxdna-kmod.spec
+
+srpm-xrt: clean-xrt
 	$(MAKE) -f $(MAKEFILE_DIR)/.copr/Makefile srpm spec=$(MAKEFILE_DIR)/xrt.spec
 
-srpm-xrt-plugin-amdxdna:
-	$(MAKE) -f $(MAKEFILE_DIR)/.copr/Makefile clean spec=$(MAKEFILE_DIR)/xrt-plugin-amdxdna.spec
+srpm-xrt-plugin-amdxdna: clean-xrt-plugin-amdxdna
 	$(MAKE) -f $(MAKEFILE_DIR)/.copr/Makefile srpm spec=$(MAKEFILE_DIR)/xrt-plugin-amdxdna.spec
 
-srpm-amdxdna-kmod:
-	$(MAKE) -f $(MAKEFILE_DIR)/.copr/Makefile clean spec=$(MAKEFILE_DIR)/amdxdna-kmod.spec
+srpm-amdxdna-kmod: clean-amdxdna-kmod
 	$(MAKE) -f $(MAKEFILE_DIR)/.copr/Makefile srpm spec=$(MAKEFILE_DIR)/amdxdna-kmod.spec
 
 build-xrt:
@@ -36,9 +44,3 @@ build-amdxdna-kmod:
 	dnf builddep -y amdxdna-kmod*.src.rpm
 	rpmbuild -rb amdxdna-kmod*.src.rpm
 	cp ~/rpmbuild/RPMS/*/* ./
-
-clean:
-	$(MAKE) -f $(MAKEFILE_DIR)/.copr/Makefile clean spec=$(MAKEFILE_DIR)/amdxdna-kmod.spec
-	$(MAKE) -f $(MAKEFILE_DIR)/.copr/Makefile clean spec=$(MAKEFILE_DIR)/xrt-plugin-amdxdna.spec
-	$(MAKE) -f $(MAKEFILE_DIR)/.copr/Makefile clean spec=$(MAKEFILE_DIR)/xrt.spec
-	rm -f *.rpm

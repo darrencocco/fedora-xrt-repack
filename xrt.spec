@@ -1,6 +1,6 @@
-%global gitcommit 5e16db0493278b4d778ac3e7c1c5c8a0fe018bf3
+%global gitcommit 49612fa3dd81fd7068a7af1f1105880b381ea969
 %global gitshortcommit %(c=%{gitcommit}; echo ${c:0:7})
-%global gitsnapinfo git20260708.%{gitshortcommit}
+%global gitsnapinfo git20260901.%{gitshortcommit}
 %global debug_package %{nil}
 
 Name: xrt-base
@@ -114,6 +114,7 @@ PATH="$(pwd)/../localbin:$PATH" ./build.sh \
   -disable-werror \
   -hip \
   -npu \
+  -noctest \
   -install_prefix /usr
 
 %install
@@ -138,10 +139,10 @@ mv %{buildroot}/usr/share/completions/xbutil-bash-completion %{buildroot}%{bash_
 /usr/bin/aiebu-dump
 /usr/bin/aiebu-transform
 /usr/bin/xclbinutil
-/usr/bin/xrt-runner
-/usr/bin/xrt-smi
 /usr/bin/xrt-capture
 /usr/bin/xrt-replay
+/usr/bin/xrt-runner
+/usr/bin/xrt-smi
 
 /usr/lib64/libxilinxopencl.so.2
 /usr/lib64/libxilinxopencl.so.2.26.0
@@ -191,8 +192,8 @@ mv %{buildroot}/usr/share/completions/xbutil-bash-completion %{buildroot}%{bash_
 /usr/include/xrt/detail/param_traits.h
 /usr/include/xrt/detail/pimpl.h
 /usr/include/xrt/detail/span.h
+/usr/include/xrt/detail/version-git.h
 /usr/include/xrt/detail/version-slim.h
-/usr/include/xrt/detail/version.h
 /usr/include/xrt/detail/xclbin.h
 /usr/include/xrt/detail/xrt_error_code.h
 /usr/include/xrt/detail/xrt_mem.h
@@ -272,7 +273,7 @@ mv %{buildroot}/usr/share/completions/xbutil-bash-completion %{buildroot}%{bash_
 
 
 %changelog
-* Wed Jul 08 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.26.0^git20260708.4d57b3d-1
+* Tue Sep 01 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.26.0^git20260901.49612fa-1
 - Updated to 2.26.0
 
 * Mon Jun 15 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.25.23^git20260615.943586a-1
