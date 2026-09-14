@@ -1,13 +1,13 @@
-%global gitcommit 928ce6f6dcb20f5c6ed739ed9ccd129c18effd39
+%global gitcommit eae6a0f610fe70bc1df23ef0977c1689b87656e4
 %global gitshortcommit %(c=%{gitcommit}; echo ${c:0:7})
-%global gitsnapinfo git20260615.%{gitshortcommit}
+%global gitsnapinfo git20260901.%{gitshortcommit}
 %global debug_package %{nil}
 %define buildforkernels akmod
 
 %global modname amdxdna
 
 Name: %{modname}-kmod
-Version: 2.25.23^%{gitsnapinfo}
+Version: 2.26.0^%{gitsnapinfo}
 Release: 1%{?dist}
 Summary: Kernel module for the AMD XDNA NPU driver
 Group: System Environment/Libraries

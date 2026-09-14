@@ -5,7 +5,7 @@
 
 Name: xrt-base
 Version: 2.26.0^%{gitsnapinfo}
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: AMD Flexible Runtime base
 Group: System Environment/Libraries
 License: Apache-2.0
@@ -67,7 +67,6 @@ BuildRequires: python3-devel
 BuildRequires: python3-pip
 BuildRequires: python3-pybind11
 BuildRequires: python3-sphinx
-BuildRequires: redhat-lsb
 BuildRequires: rapidjson-devel
 BuildRequires: rocm-hip-devel
 BuildRequires: rpm-build
@@ -273,6 +272,9 @@ mv %{buildroot}/usr/share/completions/xbutil-bash-completion %{buildroot}%{bash_
 
 
 %changelog
+* Tue Sep 01 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.26.0^git20260901.49612fa-2
+- Removed redhat-lsb dependancy
+
 * Tue Sep 01 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.26.0^git20260901.49612fa-1
 - Updated to 2.26.0
 
