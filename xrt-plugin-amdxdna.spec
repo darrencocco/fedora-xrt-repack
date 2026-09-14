@@ -5,7 +5,7 @@
 
 Name: xrt-plugin-amdxdna
 Version: 2.26.0^%{gitsnapinfo}
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: AMD Flexible Runtime XDNA2 shim
 Group: System Environment/Libraries
 License: Apache-2.0 AND Redistributable, no modification, no reverse engineering
@@ -65,7 +65,6 @@ BuildRequires: python3-devel
 BuildRequires: python3-pip
 BuildRequires: python3-pybind11
 BuildRequires: python3-sphinx
-BuildRequires: redhat-lsb
 BuildRequires: rapidjson-devel
 BuildRequires: rocm-hip-devel
 BuildRequires: rpm-build
