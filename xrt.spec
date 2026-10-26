@@ -1,11 +1,11 @@
-%global gitcommit 49612fa3dd81fd7068a7af1f1105880b381ea969
+%global gitcommit a29919c035c05d0a368ef6ce09d372976618dee1
 %global gitshortcommit %(c=%{gitcommit}; echo ${c:0:7})
-%global gitsnapinfo git20260901.%{gitshortcommit}
+%global gitsnapinfo git20261026.%{gitshortcommit}
 %global debug_package %{nil}
 
 Name: xrt-base
-Version: 2.26.0^%{gitsnapinfo}
-Release: 2%{?dist}
+Version: 2.27.0^%{gitsnapinfo}
+Release: 1%{?dist}
 Summary: AMD Flexible Runtime base
 Group: System Environment/Libraries
 License: Apache-2.0
@@ -144,15 +144,15 @@ mv %{buildroot}/usr/share/completions/xbutil-bash-completion %{buildroot}%{bash_
 /usr/bin/xrt-smi
 
 /usr/lib64/libxilinxopencl.so.2
-/usr/lib64/libxilinxopencl.so.2.26.0
+/usr/lib64/libxilinxopencl.so.2.27.0
 /usr/lib64/libxrt++.so.2
-/usr/lib64/libxrt++.so.2.26.0
+/usr/lib64/libxrt++.so.2.27.0
 /usr/lib64/libxrt_core.so.2
-/usr/lib64/libxrt_core.so.2.26.0
+/usr/lib64/libxrt_core.so.2.27.0
 /usr/lib64/libxrt_coreutil.so.2
-/usr/lib64/libxrt_coreutil.so.2.26.0
+/usr/lib64/libxrt_coreutil.so.2.27.0
 /usr/lib64/libxrt_hip.so.2
-/usr/lib64/libxrt_hip.so.2.26.0
+/usr/lib64/libxrt_hip.so.2.27.0
 # Need to work out how to dynamically place these because python version might change
 %{python3_sitearch}/pyxrt.cpython-%{python3_version_nodots}-x86_64-linux-gnu.so
 %{python3_sitearch}/pyxrt.pyi
@@ -257,21 +257,24 @@ mv %{buildroot}/usr/share/completions/xbutil-bash-completion %{buildroot}%{bash_
 
 %files -n xrt-npu
 /usr/lib64/libxdp_core.so.2
-/usr/lib64/libxdp_core.so.2.26.0
+/usr/lib64/libxdp_core.so.2.27.0
 /usr/lib64/xrt/module/libxdp_aie_profile_plugin.so.2
-/usr/lib64/xrt/module/libxdp_aie_profile_plugin.so.2.26.0
+/usr/lib64/xrt/module/libxdp_aie_profile_plugin.so.2.27.0
 /usr/lib64/xrt/module/libxdp_aie_trace_plugin.so.2
-/usr/lib64/xrt/module/libxdp_aie_trace_plugin.so.2.26.0
+/usr/lib64/xrt/module/libxdp_aie_trace_plugin.so.2.27.0
 /usr/lib64/xrt/module/libxdp_ml_timeline_plugin.so.2
-/usr/lib64/xrt/module/libxdp_ml_timeline_plugin.so.2.26.0
+/usr/lib64/xrt/module/libxdp_ml_timeline_plugin.so.2.27.0
 /usr/lib64/xrt/module/libxdp_native_plugin.so.2
-/usr/lib64/xrt/module/libxdp_native_plugin.so.2.26.0
+/usr/lib64/xrt/module/libxdp_native_plugin.so.2.27.0
 /usr/lib64/xrt/module/libxdp_user_plugin.so.2
-/usr/lib64/xrt/module/libxdp_user_plugin.so.2.26.0
+/usr/lib64/xrt/module/libxdp_user_plugin.so.2.27.0
 
 
 
 %changelog
+* Mon Oct 26 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.27.0.git20261026.a29919c-1
+- Updated to 2.27.0
+
 * Tue Sep 01 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.26.0^git20260901.49612fa-2
 - Removed redhat-lsb dependancy
 

@@ -1,13 +1,13 @@
-%global gitcommit eae6a0f610fe70bc1df23ef0977c1689b87656e4
+%global gitcommit 0c9c70e54a512027975639942a6c871d5988cab4
 %global gitshortcommit %(c=%{gitcommit}; echo ${c:0:7})
-%global gitsnapinfo git20260901.%{gitshortcommit}
+%global gitsnapinfo git20261026.%{gitshortcommit}
 %global debug_package %{nil}
 %define buildforkernels akmod
 
 %global modname amdxdna
 
 Name: %{modname}-kmod
-Version: 2.26.0^%{gitsnapinfo}
+Version: 2.27.0^%{gitsnapinfo}
 Release: 1%{?dist}
 Summary: Kernel module for the AMD XDNA NPU driver
 Group: System Environment/Libraries
@@ -139,6 +139,9 @@ done
 /etc/modprobe.d/amdxdna-blacklist.conf
 
 %changelog
+* Mon Oct 26 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.27.0^git20261026.0c9c70e-1
+- Upgraded to commit 0c9c70e54a512027975639942a6c871d5988cab4
+
 * Tue Sep 1 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.26.0^git20260901.eae6a0f-1
 - Upgraded to commit eae6a0f610fe70bc1df23ef0977c1689b87656e4
 
