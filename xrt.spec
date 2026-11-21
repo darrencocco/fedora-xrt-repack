@@ -1,6 +1,6 @@
-%global gitcommit a29919c035c05d0a368ef6ce09d372976618dee1
+%global gitcommit 4f7d26105937680818e7cdc519205dcefbc3078a
 %global gitshortcommit %(c=%{gitcommit}; echo ${c:0:7})
-%global gitsnapinfo git20261026.%{gitshortcommit}
+%global gitsnapinfo git20261121.%{gitshortcommit}
 %global debug_package %{nil}
 
 Name: xrt-base
@@ -272,6 +272,9 @@ mv %{buildroot}/usr/share/completions/xbutil-bash-completion %{buildroot}%{bash_
 
 
 %changelog
+* Sat Nov 21 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.27.0.git20261121.4f7d261-1
+- Updated to required upstream for latest XDNA2 release.
+
 * Mon Oct 26 2026 Darren Cocco <linux.fedora.packaging@darren.cocco.id.au> 2.27.0.git20261026.a29919c-1
 - Updated to 2.27.0
 
